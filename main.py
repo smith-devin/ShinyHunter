@@ -4,12 +4,9 @@ from EmailService import EmailService
 from ShinyPokemonBot import ShinyPokemonBot
 
 if __name__ == '__main__':
-    # Setup the statistics variables 
-    time.sleep(3)
     counter = 1
-
     startTime = time.time()
-    time.sleep(1)
+    time.sleep(3)
 
     # Open the gba emulator
     gbaWindow = GbaWindow()
@@ -20,13 +17,13 @@ if __name__ == '__main__':
     # Start checking for shiny pokemon
     while True:
         gbaWindow.toggleFastForward(True)
-        isShinyPokemonFound = ShinyPokemonBot.run()
+        isShinyPokemonFound, filepath = ShinyPokemonBot.run()
 
         if isShinyPokemonFound:
-            EmailService.sendEmailWithImage("SHINY ALERT", f"You found a shiny pokemon after {counter} iterations! It took {time.time() - startTime} seconds.", "smithdevin6@gmail.com", "images\shinySquirtle.png")
+            EmailService.sendEmailWithImage("SHINY ALERT", f"You found a shiny pokemon after {counter} iterations! It took {time.time() - startTime} seconds.", "smithdevin6@gmail.com", filepath)
             gbaWindow.saveGame()
             break
-        else:
+        else: 
             gbaWindow.loadGame()
 
         print(f'\rNumber of iterations: {counter}  Time elapsed: {time.time() - startTime}', end='')

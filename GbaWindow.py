@@ -48,7 +48,7 @@ class GbaWindow:
 
         time.sleep(.5)
 
-        pyautogui.click(x=2500, y=664, button='left')
+        pyautogui.click(x=2500, y=645, button='left')
 
         pyautogui.click(x=2810, y=852, button='left')
 
