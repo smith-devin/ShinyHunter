@@ -137,7 +137,6 @@ class ShinyPokemonBot:
 
     def checkForShinySquirtle():
         pydirectinput.press('enter') # open menu
-        ShinyPokemonBot.pressDown(.2)
         ShinyPokemonBot.pressA(.2)
         ShinyPokemonBot.pressA(.2)
         ShinyPokemonBot.pressA(.2)
@@ -145,7 +144,7 @@ class ShinyPokemonBot:
         squirtleShellColor = pyautogui.pixel(2076, 623)
 
         if squirtleShellColor == (184, 104, 0):
-            return False
+            return False, ""
         else:
             shinySquirtle = pyautogui.screenshot()
             filepath = 'images\shiny_' + datetime.now().strftime('%m-%d-%Y_%Hh%Mm%Ss') + '.png'
