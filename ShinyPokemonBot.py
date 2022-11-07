@@ -30,29 +30,29 @@ class ShinyPokemonBot:
 
     def debugTrainerNumber():
         pydirectinput.press('enter') # open menu
-        ShinyPokemonBot.pressDown(.5)
-        ShinyPokemonBot.pressA(.5)
+        ShinyPokemonBot.pressDown(.2)
+        ShinyPokemonBot.pressA(.2)
 
         trainerID = pyautogui.screenshot()
         filepath = 'images\TID_' + datetime.now().strftime('%m-%d-%Y_%Hh%Mm%Ss') + '.png'
         trainerID.save(filepath)
 
-        ShinyPokemonBot.pressB(.5)
-        ShinyPokemonBot.pressB(.5)
+        ShinyPokemonBot.pressB(.2)
+        ShinyPokemonBot.pressB(.2)
     
     def advanceToSquirtle():
         # Choose a trainer name
-        ShinyPokemonBot.pressA(.5)
-        ShinyPokemonBot.pressA(.5)
-        ShinyPokemonBot.pressA(.5)
-        ShinyPokemonBot.pressA(.5)
+        ShinyPokemonBot.pressA(.2)
+        ShinyPokemonBot.pressA(.2)
+        ShinyPokemonBot.pressA(.2)
+        ShinyPokemonBot.pressA(.2)
 
-        ShinyPokemonBot.pressDown(.5)
-        ShinyPokemonBot.pressA(.5)
-        ShinyPokemonBot.pressA(.5)
-        ShinyPokemonBot.pressA(.5)
-        ShinyPokemonBot.pressA(.5)
-        ShinyPokemonBot.pressA(.5)
+        ShinyPokemonBot.pressDown(.2)
+        ShinyPokemonBot.pressA(.2)
+        ShinyPokemonBot.pressA(.2)
+        ShinyPokemonBot.pressA(.2)
+        ShinyPokemonBot.pressA(.2)
+        ShinyPokemonBot.pressA(.2)
 
         time.sleep(.5)
         
@@ -60,86 +60,87 @@ class ShinyPokemonBot:
         #ShinyPokemonBot.debugTrainerNumber()
 
         # Get out of bedroom
-        ShinyPokemonBot.pressRight(.5)
-        ShinyPokemonBot.pressUp(.5)
-        ShinyPokemonBot.pressLeft(.5)
+        ShinyPokemonBot.pressRight(.2)
+        ShinyPokemonBot.pressUp(.2)
+        ShinyPokemonBot.pressLeft(.2)
 
         # Get out of living room
-        ShinyPokemonBot.pressDown(.5)
-        ShinyPokemonBot.pressLeft(.5)
+        ShinyPokemonBot.pressDown(.2)
+        ShinyPokemonBot.pressLeft(.2)
         ShinyPokemonBot.toggleFastForward(False)
-        ShinyPokemonBot.pressLeft(.5)
+        ShinyPokemonBot.pressLeft(.2)
         ShinyPokemonBot.toggleFastForward(True)
-        ShinyPokemonBot.pressDown(.5)
+        ShinyPokemonBot.pressDown(.2)
 
         # Go to Prof. Oak
-        ShinyPokemonBot.pressRight(.5)
+        ShinyPokemonBot.pressRight(.2)
         ShinyPokemonBot.toggleFastForward(False)
-        ShinyPokemonBot.pressRight(.5)
+        ShinyPokemonBot.pressRight(.2)
         ShinyPokemonBot.toggleFastForward(True)
 
-        ShinyPokemonBot.pressUp(.5)
-        ShinyPokemonBot.pressUp(.5)
+        ShinyPokemonBot.pressUp(.2)
+        ShinyPokemonBot.pressUp(.2)
 
         time.sleep(.5)
 
-        ShinyPokemonBot.pressA(.5)
-        ShinyPokemonBot.pressA(.5)
-        ShinyPokemonBot.pressA(.5)
+        ShinyPokemonBot.pressA(.2)
+        ShinyPokemonBot.pressA(.2)
+        ShinyPokemonBot.pressA(.2)
 
         time.sleep(1)
 
-        ShinyPokemonBot.pressA(.5)
-        ShinyPokemonBot.pressA(.5)
-        ShinyPokemonBot.pressA(.5)
-        ShinyPokemonBot.pressA(.5)
-        ShinyPokemonBot.pressA(.5)
-        ShinyPokemonBot.pressA(.5)
+        ShinyPokemonBot.pressA(.2)
+        ShinyPokemonBot.pressA(.2)
+        ShinyPokemonBot.pressA(.2)
+        ShinyPokemonBot.pressA(.2)
+        ShinyPokemonBot.pressA(.2)
+        ShinyPokemonBot.pressA(.2)
 
-        ShinyPokemonBot.pressA(.5)
-        ShinyPokemonBot.pressA(.5)
-        ShinyPokemonBot.pressA(.5)
-        ShinyPokemonBot.pressA(.5)
-        ShinyPokemonBot.pressA(.5)
-        ShinyPokemonBot.pressA(.5)
+        ShinyPokemonBot.pressA(.2)
+        ShinyPokemonBot.pressA(.2)
+        ShinyPokemonBot.pressA(.2)
+        ShinyPokemonBot.pressA(.2)
+        ShinyPokemonBot.pressA(.2)
+        ShinyPokemonBot.pressA(.2)
 
         ShinyPokemonBot.toggleFastForward(False)
 
-        ShinyPokemonBot.pressDown(.5)
-        ShinyPokemonBot.pressDown(.5)
+        ShinyPokemonBot.pressDown(.2)
+        ShinyPokemonBot.pressDown(.2)
 
-        ShinyPokemonBot.pressRight(.5)
-        ShinyPokemonBot.pressRight(.5)
-        ShinyPokemonBot.pressRight(.5)
-        ShinyPokemonBot.pressRight(.5)
+        ShinyPokemonBot.pressRight(.2)
+        ShinyPokemonBot.pressRight(.2)
+        ShinyPokemonBot.pressRight(.2)
+        ShinyPokemonBot.pressRight(.2)
 
-        ShinyPokemonBot.pressUp(.5)
+        ShinyPokemonBot.pressUp(.2)
 
         ShinyPokemonBot.toggleFastForward(True)
 
     def getSquirtle():
         # Accept pokemon
-        ShinyPokemonBot.pressA(.5)
-        ShinyPokemonBot.pressA(.5)
-        ShinyPokemonBot.pressA(.5)
+        ShinyPokemonBot.pressA(.2)
+        ShinyPokemonBot.pressA(.2)
+        ShinyPokemonBot.pressA(.2)
 
         # Advance dialouge 
-        ShinyPokemonBot.pressA(.5)
-        time.sleep(1)
+        ShinyPokemonBot.pressA(.2)
+        time.sleep(.5)
 
         # Decline to nickname
-        ShinyPokemonBot.pressDown(.5)
-        ShinyPokemonBot.pressB(.5)
+        ShinyPokemonBot.pressDown(.2)
+        ShinyPokemonBot.pressB(.2)
 
         # Advance dialouge 
-        time.sleep(1)
-        ShinyPokemonBot.pressA(.5)
+        time.sleep(.5)
+        ShinyPokemonBot.pressA(.2)
 
     def checkForShinySquirtle():
+        pydirectinput.FAILSAFE = False
         pydirectinput.press('enter') # open menu
-        ShinyPokemonBot.pressA(.5)
-        ShinyPokemonBot.pressA(.5)
-        ShinyPokemonBot.pressA(.5)
+        ShinyPokemonBot.pressA(.2)
+        ShinyPokemonBot.pressA(.2)
+        ShinyPokemonBot.pressA(.2)
 
         squirtleShellColor = pyautogui.pixel(2076, 623)
 
@@ -154,9 +155,9 @@ class ShinyPokemonBot:
     def run():
         ShinyPokemonBot.advanceToSquirtle()
         ShinyPokemonBot.getSquirtle()
-        isShinyPokemonFound = ShinyPokemonBot.checkForShinySquirtle()
+        isShinyPokemonFound, filepath = ShinyPokemonBot.checkForShinySquirtle()
 
-        return isShinyPokemonFound
+        return isShinyPokemonFound, filepath
 
     
 

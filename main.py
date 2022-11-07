@@ -1,5 +1,6 @@
 import time
 import pyautogui
+from datetime import datetime
 from GbaWindow import GbaWindow
 from EmailService import EmailService
 from ShinyPokemonBot import ShinyPokemonBot
@@ -28,13 +29,13 @@ if __name__ == '__main__':
                 error += 1
                 gbaWindow.loadGame()
             else:
-                EmailService.sendEmailWithImage("SHINY ALERT", f"You found a shiny pokemon after {counter} iterations! It took {time.time() - startTime} seconds. Number of false positives: {error}", "smithdevin6@gmail.com", filepath)
+                EmailService.sendEmailWithImage("SHINY ALERT", f"You found a shiny pokemon! Iterations: {counter}  False positives: {error}  Time: " + datetime.now().strftime('%m-%d-%Y_%Hh%Mm%Ss'), "smithdevin6@gmail.com", filepath)
                 gbaWindow.saveGame()
                 break
         else:
             gbaWindow.loadGame()
 
-        print(f'\rNumber of iterations: {counter}  Time elapsed: {time.time() - startTime}  Number of false positives: {error}', end='')
+        print(f'\rIterations: {counter}  False positives: {error}  Time: ' + datetime.now().strftime('%m-%d-%Y_%Hh%Mm%Ss'), end='')
         counter += 1
 
     gbaWindow.kill()

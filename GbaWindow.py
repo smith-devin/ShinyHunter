@@ -57,6 +57,8 @@ class GbaWindow:
             pyautogui.press('s')
 
     def toggleFastForward(self, command):
+        pydirectinput.FAILSAFE = False
+        
         if command == True:
             pydirectinput.keyDown('space')
         else:
