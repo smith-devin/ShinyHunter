@@ -25,6 +25,7 @@ if __name__ == '__main__':
             try:
                 backpackfound = pyautogui.locateOnScreen("images\\backpack.png")
                 error += 1
+                gbaWindow.loadGame()
             except:
                 EmailService.sendEmailWithImage("SHINY ALERT", f"You found a shiny pokemon after {counter} iterations! It took {time.time() - startTime} seconds. Number of false positives: {error}", "smithdevin6@gmail.com", filepath)
                 gbaWindow.saveGame()
@@ -32,7 +33,7 @@ if __name__ == '__main__':
         else:
             gbaWindow.loadGame()
 
-        print(f'\rNumber of iterations: {counter}  Time elapsed: {time.time() - startTime}', "Number of false positives: {error}", end='')
+        print(f'\rNumber of iterations: {counter}  Time elapsed: {time.time() - startTime}  Number of false positives: {error}', end='')
         counter += 1
 
     gbaWindow.kill()
