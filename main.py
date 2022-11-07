@@ -22,11 +22,12 @@ if __name__ == '__main__':
         isShinyPokemonFound, filepath = ShinyPokemonBot.run()
 
         if isShinyPokemonFound:
-            try:
-                backpackfound = pyautogui.locateOnScreen("images\\backpack.png")
+            backpackfound = pyautogui.locateOnScreen("images\\backpack.png", confidence=.7)
+            
+            if backpackfound is not None:
                 error += 1
                 gbaWindow.loadGame()
-            except:
+            else:
                 EmailService.sendEmailWithImage("SHINY ALERT", f"You found a shiny pokemon after {counter} iterations! It took {time.time() - startTime} seconds. Number of false positives: {error}", "smithdevin6@gmail.com", filepath)
                 gbaWindow.saveGame()
                 break
