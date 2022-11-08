@@ -38,9 +38,9 @@ class GbaWindow:
 
         time.sleep(.5)
 
-        pyautogui.click(x=2500, y=607, button='left')
+        pyautogui.click(x=2500, y=590, button='left')
 
-        pyautogui.click(x=2810, y=852, button='left')
+        pyautogui.click(x=2810, y=835, button='left')
 
     def loadGame(self):
         with pyautogui.hold('ctrl'):
@@ -48,13 +48,19 @@ class GbaWindow:
 
         time.sleep(.5)
 
-        pyautogui.click(x=2500, y=646, button='left')
+        pyautogui.click(x=2500, y=629, button='left')
 
-        pyautogui.click(x=2810, y=852, button='left')
+        pyautogui.click(x=2810, y=837, button='left')
 
     def saveGame(self):
-        with pyautogui.hold('f1'):
+        with pyautogui.hold('ctrl'):
             pyautogui.press('s')
+
+        time.sleep(.5)
+
+        pyautogui.click(x=2500, y=592, button='left')
+
+        pyautogui.click(x=2810, y=860, button='left')
 
     def toggleFastForward(self, command):
         pydirectinput.FAILSAFE = False
