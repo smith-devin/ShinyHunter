@@ -29,13 +29,13 @@ if __name__ == '__main__':
                 error += 1
                 gbaWindow.loadGame()
             else:
-                EmailService.sendEmailWithImage("SHINY ALERT", f"You found a shiny pokemon! Iterations: {counter}  False positives: {error}  Time: " + datetime.now().strftime('%m-%d-%Y_%Hh%Mm%Ss'), "smithdevin6@gmail.com", filepath)
+                EmailService.sendEmailWithImage("SHINY ALERT", f"You found a shiny pokemon! Iterations: {counter}  False positives: {error}  Time(seconds): {int(time.time() - startTime)}", "smithdevin6@gmail.com", filepath)
                 gbaWindow.saveGame()
                 break
         else:
             gbaWindow.loadGame()
 
-        print(f'\rIterations: {counter}  False positives: {error}  Time: ' + datetime.now().strftime('%m-%d-%Y_%Hh%Mm%Ss'), end='')
+        print(f'\rIterations: {counter}  False positives: {error}  Time(seconds): {int(time.time() - startTime)}', end='')
         counter += 1
 
     gbaWindow.kill()
