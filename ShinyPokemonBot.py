@@ -142,15 +142,25 @@ class ShinyPokemonBot:
         ShinyPokemonBot.pressA(.2)
         ShinyPokemonBot.pressA(.2)
 
-        squirtleShellColor = pyautogui.pixel(2076, 623)
+        topSquirtleShellColor = pyautogui.pixel(2076, 331)
+        bottomSquirtleShellColor = pyautogui.pixel(2076, 1040)
 
-        if squirtleShellColor == (184, 104, 0):
-            return False, ""
-        else:
+        if topSquirtleShellColor == (104, 152, 24):
             shinySquirtle = pyautogui.screenshot()
             filepath = 'images\shiny_' + datetime.now().strftime('%m-%d-%Y_%Hh%Mm%Ss') + '.png'
             shinySquirtle.save(filepath)
-            return True, filepath
+
+            return True, filepath, True
+
+        elif bottomSquirtleShellColor == (104, 152, 24):
+
+            shinySquirtle = pyautogui.screenshot()
+            filepath = 'images\shiny_' + datetime.now().strftime('%m-%d-%Y_%Hh%Mm%Ss') + '.png'
+            shinySquirtle.save(filepath)
+
+            return True, filepath, False
+        else:
+            return False, "", None
 
     def run():
         ShinyPokemonBot.advanceToSquirtle()

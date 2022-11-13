@@ -12,7 +12,6 @@ class GbaWindow:
 
         time.sleep(.5)
         self.findGbaWindow()
-        self.resizeWindow()
 
     def findGbaWindow(self):
         def callback (hwnd, hwnds):
@@ -29,38 +28,47 @@ class GbaWindow:
         win32gui.EnumWindows(callback, hwnds)
         self.hwnd = hwnds[0]
 
-    def resizeWindow(self):
-        win32gui.MoveWindow(self.hwnd, 1713, 0, 1735, 1440, True)
+    def resizeWindow(self, x, y, width, height):
+        win32gui.MoveWindow(self.hwnd, x, y, width, height, True)
 
-    def openGame(self):
+    def openGame(self, isTop):
         with pyautogui.hold('ctrl'):
             pyautogui.press('o')
 
         time.sleep(.5)
 
-        pyautogui.click(x=2500, y=590, button='left')
+        if isTop:
+            pyautogui.click(x=2500, y=246, button='left')
+            pyautogui.click(x=2810, y=489, button='left')
+        else:
+            pyautogui.click(x=2500, y=958, button='left')
+            pyautogui.click(x=2810, y=1203, button='left')
 
-        pyautogui.click(x=2810, y=835, button='left')
-
-    def loadGame(self):
+    def loadGame(self, isTop):
         with pyautogui.hold('ctrl'):
             pyautogui.press('l')
 
         time.sleep(.5)
 
-        pyautogui.click(x=2500, y=629, button='left')
+        if isTop:
+            pyautogui.click(x=2500, y=285, button='left')
+            pyautogui.click(x=2810, y=489, button='left')
+        else:
+            pyautogui.click(x=2500, y=1000, button='left')
+            pyautogui.click(x=2810, y=1204, button='left')
 
-        pyautogui.click(x=2810, y=837, button='left')
-
-    def saveGame(self):
+    def saveGame(self, isTop):
         with pyautogui.hold('ctrl'):
             pyautogui.press('s')
 
         time.sleep(.5)
 
-        pyautogui.click(x=2500, y=592, button='left')
-
-        pyautogui.click(x=2810, y=860, button='left')
+        if isTop:
+            pyautogui.click(x=2500, y=246, button='left')
+            pyautogui.click(x=2810, y=489, button='left')
+        else:
+            pyautogui.click(x=2500, y=957, button='left')
+            pyautogui.click(x=2810, y=1204, button='left')
 
     def toggleFastForward(self, command):
         pydirectinput.FAILSAFE = False
