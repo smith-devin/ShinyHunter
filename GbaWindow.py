@@ -31,44 +31,40 @@ class GbaWindow:
     def resizeWindow(self, x, y, width, height):
         win32gui.MoveWindow(self.hwnd, x, y, width, height, True)
 
-    def openGame(self, isTop):
+    def openGame(self, x1, y1, x2, y2):
+        win32gui.SetForegroundWindow(self.hwnd)
+
         with pyautogui.hold('ctrl'):
             pyautogui.press('o')
 
         time.sleep(.5)
 
-        if isTop:
-            pyautogui.click(x=2500, y=246, button='left')
-            pyautogui.click(x=2810, y=489, button='left')
-        else:
-            pyautogui.click(x=2500, y=958, button='left')
-            pyautogui.click(x=2810, y=1203, button='left')
+        pyautogui.click(x1, y1, button='left')
+        pyautogui.click(x2, y2, button='left')
 
-    def loadGame(self, isTop):
+    def loadGame(self, x1, y1, x2, y2):
+        win32gui.SetForegroundWindow(self.hwnd)
+
         with pyautogui.hold('ctrl'):
             pyautogui.press('l')
 
         time.sleep(.5)
 
-        if isTop:
-            pyautogui.click(x=2500, y=285, button='left')
-            pyautogui.click(x=2810, y=489, button='left')
-        else:
-            pyautogui.click(x=2500, y=1000, button='left')
-            pyautogui.click(x=2810, y=1204, button='left')
+        pyautogui.click(x1, y1, button='left')
+        pyautogui.click(x2, y2, button='left')
+           
 
-    def saveGame(self, isTop):
+    def saveGame(self, x1, y1, x2, y2):
+        win32gui.SetForegroundWindow(self.hwnd)
+
         with pyautogui.hold('ctrl'):
             pyautogui.press('s')
 
         time.sleep(.5)
 
-        if isTop:
-            pyautogui.click(x=2500, y=246, button='left')
-            pyautogui.click(x=2810, y=489, button='left')
-        else:
-            pyautogui.click(x=2500, y=957, button='left')
-            pyautogui.click(x=2810, y=1204, button='left')
+        pyautogui.click(x1, y1, button='left')
+        pyautogui.click(x2, y2, button='left')
+        
 
     def toggleFastForward(self, command):
         pydirectinput.FAILSAFE = False
