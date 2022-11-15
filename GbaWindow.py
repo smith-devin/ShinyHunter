@@ -6,12 +6,22 @@ import pyautogui
 import pydirectinput
 
 class GbaWindow:
-    def __init__(self):
+    def __init__(self, x_resize, y_resize, w_resize, h_resize, x_open_load, y_open_load):
         self.gba = subprocess.Popen("C:\\Users\\moonc\\OneDrive\\Desktop\\Games\\VisualBoyAdvance.exe") 
         self.hwnd = None
+        self.x_resize = x_resize
+        self.y_resize = y_resize
+        self.w_resize = w_resize
+        self.h_resize = h_resize
+        self.x_open_load = x_open_load
+        self.y_open_load = y_open_load
 
         time.sleep(.5)
         self.findGbaWindow()
+        self.resizeWindow()
+        self.openGame()
+        self.resizeWindow()
+        self.loadGame()
 
     def findGbaWindow(self):
         def callback (hwnd, hwnds):
@@ -28,10 +38,10 @@ class GbaWindow:
         win32gui.EnumWindows(callback, hwnds)
         self.hwnd = hwnds[0]
 
-    def resizeWindow(self, x, y, width, height):
-        win32gui.MoveWindow(self.hwnd, x, y, width, height, True)
+    def resizeWindow(self):
+        win32gui.MoveWindow(self.hwnd, self.x_resize, self.y_resize, self.w_resize, self.h_resize, True)
 
-    def openGame(self, x1, y1, x2, y2):
+    def openGame(self):
         win32gui.SetForegroundWindow(self.hwnd)
 
         with pyautogui.hold('ctrl'):
@@ -39,10 +49,10 @@ class GbaWindow:
 
         time.sleep(.5)
 
-        pyautogui.click(x1, y1, button='left')
-        pyautogui.click(x2, y2, button='left')
+        pyautogui.click(self.x_open_load, self.y_open_load, button='left')
+        pyautogui.click(self.x_open_load, self.y_open_load + 250, button='left')
 
-    def loadGame(self, x1, y1, x2, y2):
+    def loadGame(self):
         win32gui.SetForegroundWindow(self.hwnd)
 
         with pyautogui.hold('ctrl'):
@@ -50,11 +60,11 @@ class GbaWindow:
 
         time.sleep(.5)
 
-        pyautogui.click(x1, y1, button='left')
-        pyautogui.click(x2, y2, button='left')
+        pyautogui.click(self.x_open_load, self.y_open_load + 40, button='left')
+        pyautogui.click(self.x_open_load, self.y_open_load + 250, button='left')
            
 
-    def saveGame(self, x1, y1, x2, y2):
+    def saveGame(self):
         win32gui.SetForegroundWindow(self.hwnd)
 
         with pyautogui.hold('ctrl'):
@@ -62,8 +72,8 @@ class GbaWindow:
 
         time.sleep(.5)
 
-        pyautogui.click(x1, y1, button='left')
-        pyautogui.click(x2, y2, button='left')
+        pyautogui.click(self.x_open_load, self.y_open_load + 70, button='left')
+        pyautogui.click(self.x_open_load, self.y_open_load + 250, button='left')
         
 
     def toggleFastForward(self, command):

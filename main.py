@@ -4,71 +4,33 @@ from EmailService import EmailService
 from ShinyPokemonBot import ShinyPokemonBot
 
 if __name__ == '__main__':
-    counter = 2
-    x = 700
-    y = 0
-    yBottom = 700
-    width = 700
-    height = 720
-    offset = 20
-    openGameHeightTop = 250
-    openGameHeightBottom = 945
+    counter = 6
 
-    # Open the gba emulator #1
-    gbaWindowOne = GbaWindow()
-    gbaWindowOne.resizeWindow(x, y, width, height)
-    gbaWindowOne.openGame(x1=1284, y1=openGameHeightTop, x2=1284, y2=(openGameHeightTop * 2))
-    gbaWindowOne.resizeWindow(x, y, width, height)
-    gbaWindowOne.loadGame(x1=1284, y1=285, x2=1284, y2=(openGameHeightTop * 2))
+    TOP_ROW_Y = 0
+    TOP_ROW_OPEN_LOAD_Y = 98
 
-    # Open the gba emulator #2
-    gbaWindowTwo = GbaWindow()
-    gbaWindowTwo.resizeWindow(x + width - offset, y, width, height)
-    gbaWindowTwo.openGame(x1=1965, y1=openGameHeightTop, x2=1965, y2=(openGameHeightTop * 2))
-    gbaWindowTwo.resizeWindow(x + width - offset, y, width, height)
-    gbaWindowTwo.loadGame(x1=1965, y1=285, x2=1965, y2=(openGameHeightTop * 2))
+    BOT_ROW_Y = 390
+    BOT_ROW_OPEN_LOAD_Y = 480
 
-    # Open the gba emulator #3
-    gbaWindowThree = GbaWindow()
-    gbaWindowThree.resizeWindow(x + (width * 2) - (offset * 2), y, width, height)
-    gbaWindowThree.openGame(x1=2650, y1=openGameHeightTop, x2=2650, y2=(openGameHeightTop * 2))
-    gbaWindowThree.resizeWindow(x + (width * 2) - (offset * 2), y, width, height)
-    gbaWindowThree.loadGame(x1=2650, y1=285, x2=2650, y2=(openGameHeightTop * 2))
+    LEFT_COLUMN_X = 1800
+    LEFT_OPEN_LOAD_X = 2287
     
-    # Open the gba emulator #4
-    gbaWindowFour = GbaWindow()
-    gbaWindowFour.resizeWindow(x + (width * 3) - (offset * 3), y, width, height)
-    gbaWindowFour.openGame(x1=3329, y1=openGameHeightTop, x2=3329, y2=(openGameHeightTop * 2))
-    gbaWindowFour.resizeWindow(x + (width * 3) - (offset * 3), y, width, height)
-    gbaWindowFour.loadGame(x1=3329, y1=285, x2=3329, y2=(openGameHeightTop * 2))
+    MIDDLE_COLUMN_X = LEFT_COLUMN_X + 480
+    MIDDLE_OPEN_LOAD_X = LEFT_OPEN_LOAD_X + 480
 
-    # Open the gba emulator #5
-    gbaWindowFive = GbaWindow()
-    gbaWindowFive.resizeWindow(x, yBottom, width, height)
-    gbaWindowFive.openGame(x1=1284, y1=openGameHeightBottom, x2=1284, y2=(openGameHeightBottom + 250))
-    gbaWindowFive.resizeWindow(x, yBottom, width, height)
-    gbaWindowFive.loadGame(x1=1284, y1=980, x2=1284, y2=(openGameHeightBottom + 250))
+    RIGHT_COLUMN_X = MIDDLE_COLUMN_X + 480
+    RIGHT_OPEN_LOAD_X = MIDDLE_OPEN_LOAD_X + 480
+    
+    WIDTH = 500
+    HEIGHT = 400
 
-    # Open the gba emulator #6
-    gbaWindowFive = GbaWindow()
-    gbaWindowFive.resizeWindow(x + width - offset, yBottom, width, height)
-    gbaWindowFive.openGame(x1=1967, y1=openGameHeightBottom, x2=1967, y2=(openGameHeightBottom + 250))
-    gbaWindowFive.resizeWindow(x + width - offset, yBottom, width, height)
-    gbaWindowFive.loadGame(x1=1967, y1=980, x2=1967, y2=(openGameHeightBottom + 250))
-
-    # Open the gba emulator #7
-    gbaWindowFive = GbaWindow()
-    gbaWindowFive.resizeWindow(x + (width * 2) - (offset * 2), yBottom, width, height)
-    gbaWindowFive.openGame(x1=2649, y1=openGameHeightBottom, x2=2649, y2=(openGameHeightBottom + 250))
-    gbaWindowFive.resizeWindow(x + (width * 2) - (offset * 2), yBottom, width, height)
-    gbaWindowFive.loadGame(x1=2649, y1=980, x2=2649, y2=(openGameHeightBottom + 250))
-
-    # Open the gba emulator #8
-    gbaWindowFive = GbaWindow()
-    gbaWindowFive.resizeWindow(x + (width * 3) - (offset * 3), yBottom, width, height)
-    gbaWindowFive.openGame(x1=3329, y1=openGameHeightBottom, x2=3329, y2=(openGameHeightBottom + 250))
-    gbaWindowFive.resizeWindow(x + (width * 3) - (offset * 3), yBottom, width, height)
-    gbaWindowFive.loadGame(x1=3329, y1=980, x2=3329, y2=(openGameHeightBottom + 250))
+    # Open the gba emulators
+    gbaWindowOne   = GbaWindow(LEFT_COLUMN_X,   TOP_ROW_Y, WIDTH, HEIGHT, LEFT_OPEN_LOAD_X,   TOP_ROW_OPEN_LOAD_Y)
+    gbaWindowTwo   = GbaWindow(MIDDLE_COLUMN_X, TOP_ROW_Y, WIDTH, HEIGHT, MIDDLE_OPEN_LOAD_X, TOP_ROW_OPEN_LOAD_Y)
+    gbaWindowThree = GbaWindow(RIGHT_COLUMN_X,  TOP_ROW_Y, WIDTH, HEIGHT, RIGHT_OPEN_LOAD_X,  TOP_ROW_OPEN_LOAD_Y)
+    gbaWindowFour  = GbaWindow(LEFT_COLUMN_X,   BOT_ROW_Y, WIDTH, HEIGHT, LEFT_OPEN_LOAD_X,   BOT_ROW_OPEN_LOAD_Y)
+    gbaWindowFive  = GbaWindow(MIDDLE_COLUMN_X, BOT_ROW_Y, WIDTH, HEIGHT, MIDDLE_OPEN_LOAD_X, BOT_ROW_OPEN_LOAD_Y)
+    gbaWindowSix   = GbaWindow(RIGHT_COLUMN_X,  BOT_ROW_Y, WIDTH, HEIGHT, RIGHT_OPEN_LOAD_X,  BOT_ROW_OPEN_LOAD_Y)
 
     startTime = time.time()
 
@@ -81,31 +43,33 @@ if __name__ == '__main__':
             EmailService.sendEmailWithImage("SHINY ALERT", f"You found a shiny pokemon! Iterations: {counter}  Time(seconds): {int(time.time() - startTime)}", "smithdevin6@gmail.com", filepath)
             
             if window == 1:
-                gbaWindowOne.saveGame(x1=2500, y1=246, x2=2810, y2=489)
+                gbaWindowOne.saveGame()
             elif window == 2:
-                gbaWindowOne.saveGame(x1=2500, y1=246, x2=2810, y2=489)
+                gbaWindowTwo.saveGame()
             elif window == 3:
-                gbaWindowOne.saveGame(x1=2500, y1=246, x2=2810, y2=489)
+                gbaWindowThree.saveGame()
             elif window == 4:
-                gbaWindowOne.saveGame(x1=2500, y1=246, x2=2810, y2=489)
+                gbaWindowFour.saveGame()
             elif window == 5:
-                gbaWindowOne.saveGame(x1=2500, y1=246, x2=2810, y2=489)
-            elif window == 6:
-                gbaWindowOne.saveGame(x1=2500, y1=246, x2=2810, y2=489)
-            elif window == 7:
-                gbaWindowTwo.saveGame(x1=2500, y1=957, x2=2810, y2=1204)
-            elif window == 8:
-                gbaWindowOne.saveGame(x1=2500, y1=246, x2=2810, y2=489)
+                gbaWindowFive.saveGame()
+            else:
+                gbaWindowSix.saveGame()
             
             break
         else:
-            gbaWindowOne.loadGame(x1=2500, y1=285, x2=2810, y2=489)
-            gbaWindowTwo.loadGame(x1=2500, y1=1000, x2=2810, y2=1204)
-        
+            gbaWindowOne.loadGame() 
+            gbaWindowTwo.loadGame()
+            gbaWindowThree.loadGame()
+            gbaWindowFour.loadGame()
+            gbaWindowFive.loadGame()
+            gbaWindowSix.loadGame()
+
         print(f'\rIterations: {counter}  Time(seconds): {int(time.time() - startTime)}', end='')
-        counter += 2
+        counter += 6
 
     gbaWindowOne.kill()
     gbaWindowTwo.kill()
     gbaWindowThree.kill()
     gbaWindowFour.kill()
+    gbaWindowFive.kill()
+    gbaWindowSix.kill()
