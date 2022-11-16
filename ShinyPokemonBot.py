@@ -1,6 +1,7 @@
 import time
 import pyautogui
 import pydirectinput
+import logging
 from datetime import datetime
 
 class ShinyPokemonBot:
@@ -124,20 +125,9 @@ class ShinyPokemonBot:
         ShinyPokemonBot.pressA(.4)
         ShinyPokemonBot.pressA(.4)
         
-        ShinyPokemonBot.toggleFastForward(False)
-        
-        ShinyPokemonBot.pressDown(.3)
-        ShinyPokemonBot.pressDown(.3)
-
-        ShinyPokemonBot.pressRight(.3)
-        ShinyPokemonBot.pressRight(.3)
-        ShinyPokemonBot.pressRight(.3)
-        ShinyPokemonBot.pressRight(.3)
-
-        ShinyPokemonBot.pressUp(.3)
-        ShinyPokemonBot.pressUp(.3)
-
-        ShinyPokemonBot.toggleFastForward(True)
+        ShinyPokemonBot.pressDown(.2)
+        ShinyPokemonBot.pressRight(.2)
+        ShinyPokemonBot.pressUp(.2)
 
     def getSquirtle():
         # Accept pokemon
@@ -164,6 +154,8 @@ class ShinyPokemonBot:
         ShinyPokemonBot.pressA(.5)
         ShinyPokemonBot.pressA(.5)
 
+        logging.info('Begin shiny checking each emulator')
+
         squirtleShellColorOne = pyautogui.pixel(1907, 195)
         squirtleShellColorTwo = pyautogui.pixel(2387, 195)
         squirtleShellColorThree = pyautogui.pixel(2867, 195)
@@ -172,6 +164,7 @@ class ShinyPokemonBot:
         squirtleShellColorSix = pyautogui.pixel(2867, 586)
 
         if squirtleShellColorOne == (104, 152, 24):
+            logging.info('Squirtle one is shiny')
             shinySquirtle = pyautogui.screenshot()
             filepath = 'images\shiny_' + datetime.now().strftime('%m-%d-%Y_%Hh%Mm%Ss') + '.png'
             shinySquirtle.save(filepath)
@@ -179,7 +172,7 @@ class ShinyPokemonBot:
             return True, filepath, 1
 
         elif squirtleShellColorTwo == (104, 152, 24):
-
+            logging.info('Squirtle two is shiny')
             shinySquirtle = pyautogui.screenshot()
             filepath = 'images\shiny_' + datetime.now().strftime('%m-%d-%Y_%Hh%Mm%Ss') + '.png'
             shinySquirtle.save(filepath)
@@ -187,7 +180,7 @@ class ShinyPokemonBot:
             return True, filepath, 2
 
         elif squirtleShellColorThree == (104, 152, 24):
-
+            logging.info('Squirtle three is shiny')
             shinySquirtle = pyautogui.screenshot()
             filepath = 'images\shiny_' + datetime.now().strftime('%m-%d-%Y_%Hh%Mm%Ss') + '.png'
             shinySquirtle.save(filepath)
@@ -195,7 +188,7 @@ class ShinyPokemonBot:
             return True, filepath, 3
 
         elif squirtleShellColorFour == (104, 152, 24):
-
+            logging.info('Squirtle four is shiny')
             shinySquirtle = pyautogui.screenshot()
             filepath = 'images\shiny_' + datetime.now().strftime('%m-%d-%Y_%Hh%Mm%Ss') + '.png'
             shinySquirtle.save(filepath)
@@ -203,7 +196,7 @@ class ShinyPokemonBot:
             return True, filepath, 4
 
         elif squirtleShellColorFive == (104, 152, 24):
-
+            logging.info('Squirtle five is shiny')
             shinySquirtle = pyautogui.screenshot()
             filepath = 'images\shiny_' + datetime.now().strftime('%m-%d-%Y_%Hh%Mm%Ss') + '.png'
             shinySquirtle.save(filepath)
@@ -211,13 +204,14 @@ class ShinyPokemonBot:
             return True, filepath, 5
 
         elif squirtleShellColorSix == (104, 152, 24):
-
+            logging.info('Squirtle six is shiny')
             shinySquirtle = pyautogui.screenshot()
             filepath = 'images\shiny_' + datetime.now().strftime('%m-%d-%Y_%Hh%Mm%Ss') + '.png'
             shinySquirtle.save(filepath)
 
             return True, filepath, 6
         else:
+            logging.info('No squirtle is shiny')
             return False, "", None
 
     def run():
