@@ -73,7 +73,7 @@ class GbaWindow:
         time.sleep(.5)
 
         pyautogui.click(self.x_open_load, self.y_open_load + 70, button='left')
-        pyautogui.click(self.x_open_load, self.y_open_load + 250, button='left')
+        pyautogui.click(self.x_open_load, self.y_open_load + 270, button='left')
         
 
     def toggleFastForward(self, command):

@@ -1,5 +1,6 @@
 import time
 import logging
+from datetime import datetime
 from GbaWindow import GbaWindow
 from EmailService import EmailService
 from ShinyPokemonBot import ShinyPokemonBot
@@ -34,6 +35,10 @@ if __name__ == '__main__':
     gbaWindowSix   = GbaWindow(RIGHT_COLUMN_X,  BOT_ROW_Y, WIDTH, HEIGHT, RIGHT_OPEN_LOAD_X,  BOT_ROW_OPEN_LOAD_Y)
 
     startTime = time.time()
+
+    # Setup logging
+    logging.basicConfig(filename='shiny_hunter_logs\shiny_hunter_' + datetime.now().strftime('%m-%d-%Y') + '.log', encoding='utf-8', level=logging.DEBUG)
+
     logging.info(f'Started emulators at: {startTime}')
 
     # Start checking for shiny pokemon
@@ -60,12 +65,13 @@ if __name__ == '__main__':
             elif window == 5:
                 logging.info('Saving game five')
                 gbaWindowFive.saveGame()
-            else:
+            elif window == 6:
                 logging.info('Saving game six')
                 gbaWindowSix.saveGame()
+            else:
+                logging.error(f'window value is out of range [1, 6]: {window}')
             break
         else:
-            logging.info('Reloading games')
             gbaWindowOne.loadGame() 
             gbaWindowTwo.loadGame()
             gbaWindowThree.loadGame()
@@ -73,7 +79,8 @@ if __name__ == '__main__':
             gbaWindowFive.loadGame()
             gbaWindowSix.loadGame()
 
-        logging.info(f'Iterations: {counter}  Time(seconds): {int(time.time() - startTime)}', end='')
+        print(f'\rIterations: {counter}  Time(seconds): {int(time.time() - startTime)}', end='')
+        logging.info(f'Iterations: {counter}  Time(seconds): {int(time.time() - startTime)}')
         counter += 6
 
     logging.info('Exiting...')

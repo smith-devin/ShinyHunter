@@ -154,8 +154,6 @@ class ShinyPokemonBot:
         ShinyPokemonBot.pressA(.5)
         ShinyPokemonBot.pressA(.5)
 
-        logging.info('Begin shiny checking each emulator')
-
         squirtleShellColorOne = pyautogui.pixel(1907, 195)
         squirtleShellColorTwo = pyautogui.pixel(2387, 195)
         squirtleShellColorThree = pyautogui.pixel(2867, 195)
